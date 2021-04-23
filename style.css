@@ -18,7 +18,8 @@ h1{
 }
 .col{
     border:1px solid rgb(213, 223, 231);
-    /* height:25px; */
+    height:25px;
+    width:50px;
     text-align: center;
 }
 #formDiv{

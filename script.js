@@ -23,6 +23,33 @@ for (i=0;i<28;i++){
         else if (i>0 && j>0){
         col.setAttribute('id', `${days[j-1]}.${times[i-1]}`);    
         }
+        col.addEventListener("click", createEvent);
     }
     grid.appendChild(row);
+}
+
+let form = document.querySelector("#form");
+let user = document.querySelector("#user");
+let color = document.querySelector("#color");
+let eventName = document.querySelector("#eventName");
+let day = document.querySelector("#day");
+let time = document.querySelector("#time");
+
+form.addEventListener("submit", creatEvent);
+
+createEvent(){
+    e.preventDefault();
+    let newEvent = document.createElement("div");
+    newEvent.style.backgroundColor=color.value;
+    //newEvent.innerHTML = `${user.value}-${eventName.value}`;
+    let xBtn = document.createElement("i");
+    xBtn.setAttribute("class","far fa-window-close xBtn");
+    newEvent.appendChild(xBtn);
+    xBtn.addEventListener("click", function(e){
+        //removes task from list
+        this.parentNode.parentNode.removeChild(this.parentNode)});
+
+
+    let gridloc = document.querySelector(`#${day.value}.${time.value}`);
+    gridloc.appendChild(newEvent);
 }
