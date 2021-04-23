@@ -1,0 +1,35 @@
+body{
+    background-color: teal;
+    display:flex;
+    flex-direction: column;
+    font-family: Raleway;
+    font-weight: 550;
+    font-size: 1.25em;
+    text-align: center;
+}
+h1{
+    padding-top: 50px;;
+    color: white;
+}
+#main{
+    display:flex;
+    padding-bottom: 50px;
+
+}
+.col{
+    border:1px solid rgb(213, 223, 231);
+    /* height:25px; */
+    text-align: center;
+}
+#formDiv{
+    width:25%;
+    background-color: turquoise;
+    margin-top: 30px;
+    display:flex;
+    flex-direction: column;
+}
+#grid{
+    background-color: white;
+    margin-top:30px;
+    width: 75%;
+}
