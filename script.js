@@ -1,9 +1,9 @@
 let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
-let times = ["7:00", "7:30","8:00","8:30","9:00","9:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30","20:00"];
+let times = ["7:00","8:00","9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00"];
 //create grid
 let grid=document.querySelector("#grid");
-//creates 28 rows
-for (i=0;i<28;i++){
+//creates 15 rows
+for (i=0;i<15;i++){
     let row = document.createElement("div");
     row.setAttribute("class","row");
     //creates 8 columns
@@ -23,33 +23,40 @@ for (i=0;i<28;i++){
         else if (i>0 && j>0){
         col.setAttribute('id', `${days[j-1]}.${times[i-1]}`);    
         }
-        col.addEventListener("click", createEvent);
     }
     grid.appendChild(row);
 }
 
-let form = document.querySelector("#form");
-let user = document.querySelector("#user");
-let color = document.querySelector("#color");
+let form = document.querySelector("#inputForm");
+let user = document.querySelector("#userName");
+let color = document.querySelector("#colorSelect");
 let eventName = document.querySelector("#eventName");
-let day = document.querySelector("#day");
-let time = document.querySelector("#time");
+let day = document.querySelector("#daySelect");
+let time = document.querySelector("#timeSelect");
 
-form.addEventListener("submit", creatEvent);
+form.addEventListener("submit", createEvent);
 
-createEvent(){
+function createEvent(e){
     e.preventDefault();
     let newEvent = document.createElement("div");
+    newEvent.setAttribute("class","newEvent");
     newEvent.style.backgroundColor=color.value;
-    //newEvent.innerHTML = `${user.value}-${eventName.value}`;
+    let title = document.createElement("h4");
+    title.innerHTML=eventName.value;
+    console.log(title);
+    newEvent.appendChild(title);
+    let person = document.createElement("h5");
+    person.innerHTML = user.value;
+    console.log(person);
+    newEvent.appendChild(person);
     let xBtn = document.createElement("i");
     xBtn.setAttribute("class","far fa-window-close xBtn");
     newEvent.appendChild(xBtn);
-    xBtn.addEventListener("click", function(e){
-        //removes task from list
-        this.parentNode.parentNode.removeChild(this.parentNode)});
+    // xBtn.addEventListener("click", function(e){
+    //     //removes task from list
+    //     this.parentNode.parentNode.removeChild(this.parentNode)});
 
-
-    let gridloc = document.querySelector(`#${day.value}.${time.value}`);
+    let gridloc = document.getElementById(`${day.value}.${time.value}`);
+    console.log(gridloc);
     gridloc.appendChild(newEvent);
 }

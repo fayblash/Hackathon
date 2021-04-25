@@ -18,8 +18,9 @@ h1{
 }
 .col{
     border:1px solid rgb(213, 223, 231);
-    height:25px;
+    height:100px;
     width:50px;
+    display:flex;
     text-align: center;
 }
 #formDiv{
@@ -28,9 +29,14 @@ h1{
     margin-top: 30px;
     display:flex;
     flex-direction: column;
+    padding-top: 20px;
 }
 #grid{
     background-color: white;
     margin-top:30px;
     width: 75%;
+}
+.newEvent{
+    display:flex;
+    flex-direction: column;
 }
