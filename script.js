@@ -38,24 +38,20 @@ form.addEventListener("submit", createEvent);
 
 function createEvent(e){
     e.preventDefault();
+    //creates div
     let newEvent = document.createElement("div");
     newEvent.setAttribute("class","newEvent");
+    //sets color,title of event
     newEvent.style.backgroundColor=color.value;
-    let title = document.createElement("h4");
+    let title = document.createElement("div");
     title.innerHTML=eventName.value;
     console.log(title);
     newEvent.appendChild(title);
-    let person = document.createElement("h5");
+    let person = document.createElement("div");
     person.innerHTML = user.value;
     console.log(person);
     newEvent.appendChild(person);
-    let xBtn = document.createElement("i");
-    xBtn.setAttribute("class","far fa-window-close xBtn");
-    newEvent.appendChild(xBtn);
-    // xBtn.addEventListener("click", function(e){
-    //     //removes task from list
-    //     this.parentNode.parentNode.removeChild(this.parentNode)});
-
+    //places event in schedule
     let gridloc = document.getElementById(`${day.value}.${time.value}`);
     console.log(gridloc);
     gridloc.appendChild(newEvent);
